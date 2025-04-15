@@ -71,16 +71,17 @@ const OTPScreen = () => {
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-            <View style={{ flex: 1, backgroundColor: COLORS.grey }}>
+            <View style={{ flex: 1, backgroundColor: COLORS.blackOpacity(.1) }}>
                 <StatusBar backgroundColor={COLORS.white} barStyle="dark-content" />
 
-                <View style={{ marginTop: safeAreaInsets.top, flex: 1, paddingHorizontal: usePercentageHeight(2), alignItems: 'center', backgroundColor: COLORS.white }}>
+                <View style={{ marginTop: safeAreaInsets.top, paddingHorizontal: usePercentageHeight(2), alignItems: 'center', }}>
                     <Image source={Images.LOGO} style={{ height: usePercentageHeight(25), width: '100%' }} resizeMode="contain" />
-
+                </View>
+                <View style={{ flex: 1, marginTop: safeAreaInsets.top, alignItems: 'center', borderTopLeftRadius: 30, borderTopRightRadius: 30, backgroundColor: '#fff' }}>
                     <Text style={{ fontSize: useFont(18), fontWeight: 'bold', color: COLORS.black, marginTop: usePercentageHeight(2) }}>
                         Enter OTP
                     </Text>
-                    <Text style={{ fontSize: useFont(13), color: COLORS.grey, textAlign: 'center', marginTop: usePercentageHeight(5) }}>
+                    <Text style={{ fontSize: useFont(13), color: COLORS.grey, textAlign: 'center', marginTop: usePercentageHeight(1) }}>
                         We've sent a verification code to your phone:
                     </Text>
                     <Text style={{ color: COLORS.APP_THEME_GREEN, fontSize: useFont(12), fontWeight: 'bold', marginVertical: usePercentageHeight(.5) }}>
@@ -118,7 +119,7 @@ const OTPScreen = () => {
 
                     {/* Verify Button */}
                     <TouchableOpacity
-                    onPress={()=>navigation.navigate('MainStack')}
+                        onPress={() => navigation.navigate('MainStack')}
                         disabled={otp.join('').length !== 6}
                         style={{
                             backgroundColor: otp.join('').length === 6 ? COLORS.primaryOpacity(.9) : COLORS.grey,
@@ -126,14 +127,15 @@ const OTPScreen = () => {
                             borderRadius: useFont(8),
                             alignItems: 'center',
                             justifyContent: 'center',
-                            marginTop: usePercentageHeight(3),
-                            width: '100%',
+                            marginTop: usePercentageHeight(10),
+                            width: '90%',
                         }}
                     >
                         {loading ? <ActivityIndicator size={'small'} color={COLORS.white} /> :
                             <Text style={{ color: COLORS.white, fontSize: useFont(14) }}>Verify OTP</Text>}
                     </TouchableOpacity>
                 </View>
+
             </View>
         </TouchableWithoutFeedback>
     );

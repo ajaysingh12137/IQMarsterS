@@ -8,7 +8,7 @@ const App = () => {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaView style={{ backgroundColor: COLORS.grey }} edges={['top']} />
-      <StatusBar barStyle="default" backgroundColor={COLORS.background} />
+      <StatusBar barStyle="dark-content" backgroundColor={COLORS.background} />
       <Routes />
       <SafeAreaView style={{ backgroundColor: COLORS.white }} edges={['bottom']} />
     </GestureHandlerRootView>

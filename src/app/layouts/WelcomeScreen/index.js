@@ -68,11 +68,11 @@ const LanguageCard = ({ language, symbol, isSelected, onSelect }) => {
 }
 
 const WelcomeScreen = () => {
-    const navigation =useNavigation()
+    const navigation = useNavigation()
     const [selectedLanguage, setSelectedLanguage] = useState('')
 
     return (
-        <View style={{ flex: 1, backgroundColor: COLORS.grey }}>
+        <View style={{ flex: 1, backgroundColor: COLORS.blackOpacity(.1) }}>
             {/* Logo Section */}
             <View style={{ height: usePercentageHeight(30), alignItems: 'center', justifyContent: 'center' }}>
                 <Image
@@ -106,7 +106,7 @@ const WelcomeScreen = () => {
 
             {/* Continue Button */}
             <View style={{ backgroundColor: 'white', justifyContent: 'flex-end', paddingBottom: usePercentageHeight(1) }}>
-                <TouchableOpacity onPress={()=>navigation.navigate('LoginScreen',selectedLanguage)}
+                <TouchableOpacity onPress={() => navigation.navigate('LoginScreen', selectedLanguage)}
                     style={{
                         justifyContent: 'center',
                         backgroundColor: COLORS.primaryOpacity(.9),
